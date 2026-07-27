@@ -1,26 +1,450 @@
-<!doctype html><html><head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>Filipa | 15</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filipa • 15 años</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;1,400;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f3ed;color:#334;font-family:Montserrat}
-.hero{height:100vh;background:linear-gradient(rgba(20,40,25,.35),rgba(20,40,25,.35)),url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
-.card{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);padding:40px;border:1px solid rgba(255,255,255,.3)}
-h1{font-family:"Cormorant Garamond";font-size:82px;font-weight:500;margin:0}
-h2{font-family:"Cormorant Garamond";font-size:44px;font-weight:400}
-#c{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:25px 0}.b{min-width:90px}.n{font-size:42px;font-family:"Cormorant Garamond"}
-section{padding:80px 20px;text-align:center}.btn{display:inline-block;padding:14px 28px;border:1px solid #556b5d;color:#556b5d;text-decoration:none;border-radius:40px;margin:8px}
-</style></head><body>
-<div class=hero><div class=card><div>26 SEPTIEMBRE 2026</div><h1>Filipa</h1><h2>La fiesta ya empezó en...</h2><div id=c></div></div></div>
-<section><h2>Sábado · 26 · Septiembre</h2><p>21:00 hs</p></section>
-<section><h2>Salón Calle 13</h2><a class=btn href='https://maps.app.goo.gl/dXh2HciXFDjbbEKAA'>Cómo llegar</a></section>
-<section><h2>Dress Code</h2><p>SPORT</p><p>Evitar los colores <b>Nude</b> y <b>Dorado</b></p></section>
-<section><a class=btn href='#'>Confirmar asistencia</a><a class=btn href='#'>Regalos</a></section>
+  :root{
+    --ink:#181818;
+    --paper:#F6F5F2;
+    --page:#DBDAD5;
+    --stone:#8E8D89;
+    --smoke:#C7C6C1;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+  }
+
+  body{
+    margin:0;
+    color:var(--ink);
+    font-family:'Space Mono', monospace;
+  }
+
+  .panel{
+    width:100%;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    padding:64px 24px 96px;
+    text-align:center;
+    position:relative;
+    scroll-snap-align:start;
+  }
+
+  .panel--hero{ background:var(--paper); }
+  .panel--date{ background:var(--page); border-top:1px dashed var(--smoke); }
+  .panel--dress{ background:var(--paper); border-top:1px dashed var(--smoke); }
+  .panel--gift{ background:var(--ink); color:var(--paper); border-top:1px dashed var(--smoke); }
+
+  .name{
+    margin:0;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(64px, 15vw, 180px);
+    line-height:0.95;
+    letter-spacing:-0.01em;
+  }
+
+  .subtitle{
+    margin:-14px 0 0;
+    font-size:clamp(13px, 1.6vw, 16px);
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    color:var(--stone);
+  }
+
+  .countdown-block{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+  }
+
+  .label{
+    margin:0;
+    font-size:11px;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--stone);
+  }
+
+  .panel--gift .label{ color:var(--smoke); }
+
+  .countdown{
+    display:flex;
+    justify-content:center;
+    gap:clamp(16px, 4vw, 40px);
+  }
+
+  .unit{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .unit span{
+    font-size:clamp(28px, 5vw, 48px);
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
+  }
+
+  .unit small{
+    margin-top:6px;
+    font-size:10px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--stone);
+  }
+
+  .countdown-message{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(20px, 3vw, 30px);
+    margin:0;
+  }
+
+  .panel-grid{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:44px;
+    width:100%;
+    max-width:960px;
+  }
+
+  .divider{
+    width:60px;
+    height:1px;
+    background:var(--smoke);
+  }
+
+  @media (min-width:760px){
+    .panel-grid{
+      flex-direction:row;
+      justify-content:center;
+      align-items:center;
+      gap:80px;
+    }
+    .divider{
+      width:1px;
+      height:130px;
+    }
+  }
+
+  .date-block .day-name{
+    margin:0;
+    font-size:13px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--stone);
+  }
+
+  .date-block .day-number{
+    margin:8px 0;
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(64px, 9vw, 110px);
+    line-height:0.9;
+  }
+
+  .date-block .month-name{
+    margin:0 0 20px;
+    font-size:13px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+  }
+
+  .date-block .time{
+    margin:0;
+    font-size:13px;
+    color:var(--stone);
+  }
+
+  .venue-name{
+    margin:12px 0 24px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(24px, 3.5vw, 34px);
+  }
+
+  .dresscode{
+    margin:12px 0 0;
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(32px, 5vw, 50px);
+    letter-spacing:0.02em;
+  }
+
+  .rsvp-copy, .gift-copy{
+    margin:12px 0 24px;
+    font-size:12.5px;
+    line-height:1.8;
+    max-width:340px;
+  }
+
+  .btn{
+    display:inline-block;
+    appearance:none;
+    border:1px solid var(--ink);
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:var(--radius);
+    cursor:pointer;
+  }
+
+  .btn:focus-visible{
+    outline:2px solid currentColor;
+    outline-offset:3px;
+  }
+
+  .btn--pending{
+    background:transparent;
+    color:var(--stone);
+    border-color:var(--smoke);
+    cursor:default;
+  }
+
+  .panel--gift .btn{
+    background:var(--paper);
+    color:var(--ink);
+    border-color:var(--paper);
+  }
+
+  .monogram{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:88px;
+    height:88px;
+    border:1px solid var(--paper);
+    border-radius:50%;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:34px;
+  }
+
+  .wedge-link{
+    position:absolute;
+    bottom:32px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    padding:14px;
+  }
+
+  .wedge{
+    width:0;
+    height:0;
+    border-left:12px solid transparent;
+    border-right:12px solid transparent;
+    border-top:14px solid var(--ink);
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .wedge-link{ animation:nudge 1.8s ease-in-out infinite; }
+    .panel--hero .name, .panel--hero .subtitle, .panel--hero .countdown-block{
+      animation:rise 0.7s ease both;
+    }
+  }
+  @keyframes nudge{
+    0%, 100%{ transform:translate(-50%, 0); }
+    50%{ transform:translate(-50%, 8px); }
+  }
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .modal{
+    position:fixed;
+    inset:0;
+    background:rgba(24,24,24,0.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .modal[hidden]{ display:none; }
+
+  .modal-content{
+    position:relative;
+    width:100%;
+    max-width:320px;
+    background:var(--paper);
+    color:var(--ink);
+    padding:40px 28px 32px;
+    text-align:center;
+  }
+
+  .modal-close{
+    position:absolute;
+    top:10px;
+    right:14px;
+    background:none;
+    border:none;
+    font-size:22px;
+    line-height:1;
+    color:var(--ink);
+    cursor:pointer;
+  }
+
+  .alias{
+    margin:0 0 20px;
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    word-break:break-all;
+  }
+
+  .copy-feedback{
+    margin:14px 0 0;
+    font-size:11px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--stone);
+  }
+</style>
+</head>
+<body>
+
+  <section id="s1" class="panel panel--hero">
+    <h1 class="name">Filipa</h1>
+    <p class="subtitle">15 años</p>
+    <div class="countdown-block">
+      <p class="label">La fiesta comienza en</p>
+      <div id="countdown" class="countdown">
+        <div class="unit"><span id="cd-days">00</span><small>días</small></div>
+        <div class="unit"><span id="cd-hours">00</span><small>hs</small></div>
+        <div class="unit"><span id="cd-minutes">00</span><small>min</small></div>
+        <div class="unit"><span id="cd-seconds">00</span><small>seg</small></div>
+      </div>
+      <p id="countdown-message" class="countdown-message" hidden>¡La fiesta ya empezó!</p>
+    </div>
+    <a href="#s2" class="wedge-link" aria-label="Ver fecha y salón"><span class="wedge"></span></a>
+  </section>
+
+  <section id="s2" class="panel panel--date">
+    <div class="panel-grid">
+      <div class="date-block">
+        <p class="day-name">Sábado</p>
+        <p class="day-number">26</p>
+        <p class="month-name">Septiembre</p>
+        <p class="time">Desde las 21:00 hs</p>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="venue-block">
+        <p class="label">Salón</p>
+        <p class="venue-name">Calle 13 Eventos</p>
+        <a class="btn" href="https://maps.app.goo.gl/9gsmpWgmqHZEGZYi7" target="_blank" rel="noopener">¿Cómo llego?</a>
+      </div>
+    </div>
+    <a href="#s3" class="wedge-link" aria-label="Ver dress code y asistencia"><span class="wedge"></span></a>
+  </section>
+
+  <section id="s3" class="panel panel--dress">
+    <div class="panel-grid">
+      <div class="dress-block">
+        <p class="label">Dress code</p>
+        <p class="dresscode">Sport</p>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="rsvp-block">
+        <p class="label">Asistencia</p>
+        <p class="rsvp-copy">Confirmá tu presencia para reservarte un lugar.</p>
+        <!-- Cuando tengas el link del formulario, reemplazá el <span> de abajo por:
+             <a class="btn" href="TU_LINK_ACA" target="_blank" rel="noopener">Confirmar</a> -->
+        <span class="btn btn--pending" aria-disabled="true">Muy pronto</span>
+      </div>
+    </div>
+    <a href="#s4" class="wedge-link" aria-label="Ver regalos"><span class="wedge"></span></a>
+  </section>
+
+  <section id="s4" class="panel panel--gift">
+    <span class="monogram">F</span>
+    <p class="gift-copy">Tu presencia es mi mayor regalo,<br>pero si querés hacerme un obsequio,<br>te facilito los datos.</p>
+    <button id="open-gift" class="btn" type="button">Regalos</button>
+  </section>
+
+  <div id="gift-modal" class="modal" hidden>
+    <div class="modal-content">
+      <button id="close-gift" class="modal-close" type="button" aria-label="Cerrar">×</button>
+      <p class="label">Alias para transferencia</p>
+      <!-- Reemplazá el texto de abajo por el alias real cuando lo tengas -->
+      <p id="alias-text" class="alias">alias.pendiente</p>
+      <button id="copy-alias" class="btn" type="button">Copiar alias</button>
+      <p id="copy-feedback" class="copy-feedback" hidden>¡Copiado!</p>
+    </div>
+  </div>
+
 <script>
-const t=new Date("2026-09-26T21:00:00-03:00");
-setInterval(()=>{let d=t-new Date();if(d<0){c.innerHTML="<h2>¡La fiesta comenzó!</h2>";return}
-let s=d/1000|0,D=s/86400|0,H=s%86400/3600|0,M=s%3600/60|0,S=s%60;
-c.innerHTML=`<div class=b><div class=n>${D}</div>Días</div><div class=b><div class=n>${H}</div>Horas</div><div class=b><div class=n>${M}</div>Min</div><div class=b><div class=n>${S}</div>Seg</div>`},1000)
-</script></body></html>
+  // Cuenta regresiva a las 21:00 hs (ARG, UTC-3) del sábado 26/09/2026
+  var target = new Date("2026-09-26T21:00:00-03:00").getTime();
+
+  function pad(n){ return String(n).padStart(2, "0"); }
+
+  function tick(){
+    var diff = target - Date.now();
+    if (diff <= 0){
+      document.getElementById("countdown").hidden = true;
+      document.getElementById("countdown-message").hidden = false;
+      clearInterval(timer);
+      return;
+    }
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000) / 60000);
+    var seconds = Math.floor((diff % 60000) / 1000);
+    document.getElementById("cd-days").textContent = pad(days);
+    document.getElementById("cd-hours").textContent = pad(hours);
+    document.getElementById("cd-minutes").textContent = pad(minutes);
+    document.getElementById("cd-seconds").textContent = pad(seconds);
+  }
+
+  var timer = setInterval(tick, 1000);
+  tick();
+
+  var modal = document.getElementById("gift-modal");
+  document.getElementById("open-gift").addEventListener("click", function(){
+    modal.hidden = false;
+  });
+  document.getElementById("close-gift").addEventListener("click", function(){
+    modal.hidden = true;
+  });
+  modal.addEventListener("click", function(e){
+    if (e.target === modal) modal.hidden = true;
+  });
+
+  document.getElementById("copy-alias").addEventListener("click", function(){
+    var text = document.getElementById("alias-text").textContent.trim();
+    var feedback = document.getElementById("copy-feedback");
+    navigator.clipboard.writeText(text).then(function(){
+      feedback.hidden = false;
+      setTimeout(function(){ feedback.hidden = true; }, 2000);
+    });
+  });
+</script>
+
+</body>
+</html>
