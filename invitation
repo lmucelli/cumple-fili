@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Filipa • 15 años</title>
+<title>Filipa | 15 años</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;1,400;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
     --page:#DBDAD5;
     --stone:#8E8D89;
     --smoke:#C7C6C1;
+    --nude:#F7CFBC;	
     --radius:2px;
   }
 
@@ -48,14 +49,14 @@
   .panel--hero{ background:var(--paper); }
   .panel--date{ background:var(--page); border-top:1px dashed var(--smoke); }
   .panel--dress{ background:var(--paper); border-top:1px dashed var(--smoke); }
-  .panel--gift{ background:var(--ink); color:var(--paper); border-top:1px dashed var(--smoke); }
+  .panel--gift{ background:var(--nude); color:var(--ink); border-top:1px dashed var(--ink); }
 
   .name{
     margin:0;
     font-family:'Fraunces', serif;
     font-style:italic;
     font-weight:400;
-    font-size:clamp(62px, 15vw, 180px);
+    font-size:clamp(60px, 12vw, 160px);
     line-height:0.95;
     letter-spacing:-0.01em;
   }
@@ -330,7 +331,7 @@
 <body>
 
   <section id="s1" class="panel panel--hero">
-    <h1 class="name">Filipa</h1>
+    <h1 class="name">Filipa</h1><br>
     <p class="subtitle">15 años</p>
     <div class="countdown-block">
       <p class="label">La fiesta comienza en</p>
@@ -356,7 +357,7 @@
       <div class="divider" aria-hidden="true"></div>
       <div class="venue-block">
         <p class="label">Salón</p>
-        <p class="venue-name">Calle 13</p>
+        <p class="venue-name">Calle 13 </p>
         <a class="btn" href="https://maps.app.goo.gl/9gsmpWgmqHZEGZYi7" target="_blank" rel="noopener">¿Cómo llego?</a>
       </div>
     </div>
@@ -378,9 +379,18 @@
         <span class="btn btn--pending" aria-disabled="true">Muy pronto</span>
       </div>
     </div>
-   
+    <a href="#s4" class="wedge-link" aria-label="Ver regalos"><span class="wedge"></span></a>
   </section>
 
+  <section id="s4" class="panel panel--gift">
+    <span class="monogram">F</span>
+    <p class="gift-copy">Espero que puedas estar presente,<br>para que juntos pasemos,<br>una noche inolvidable.</p>
+     </section>
+
+  <div id="gift-modal" class="modal" hidden>
+    <div class="modal-content">
+      <button id="close-gift" class="modal-close" type="button" aria-label="Cerrar">×</button>
+    </div>
   </div>
 
 <script>
