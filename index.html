@@ -378,7 +378,25 @@
         <span class="btn btn--pending" aria-disabled="true">Muy pronto</span>
       </div>
     </div>
-   
+      <a href="#s4" class="wedge-link" aria-label="Ver regalos"><span class="wedge"></span></a>
+  </section>
+
+  <section id="s4" class="panel panel--gift">
+    <span class="monogram">F</span>
+    <p class="gift-copy">Tu presencia es mi mayor regalo,<br>pero si querés hacerme un obsequio,<br>te facilito los datos.</p>
+    <button id="open-gift" class="btn" type="button">Regalos</button>
+  </section>
+
+  <div id="gift-modal" class="modal" hidden>
+    <div class="modal-content">
+      <button id="close-gift" class="modal-close" type="button" aria-label="Cerrar">×</button>
+      <p class="label">Alias para transferencia</p>
+      <!-- Reemplazá el texto de abajo por el alias real cuando lo tengas -->
+      <p id="alias-text" class="alias">alias.pendiente</p>
+      <button id="copy-alias" class="btn" type="button">Copiar alias</button>
+      <p id="copy-feedback" class="copy-feedback" hidden>¡Copiado!</p>
+    </div>
+  </div>
   </section>
 
   </div>
